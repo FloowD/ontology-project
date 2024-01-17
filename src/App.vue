@@ -1,47 +1,35 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import GraphStatic from './components/GraphStatic.vue'
+import Graph from './components/Graph.vue'
+import {ref} from 'vue'
+// const instrumentOntology = JSON.parse(jsonOntology)
+
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <h1>Ontologie sur les instruments de musiques</h1>
+    <div>
+      <!-- {{ instrumentOntology }} -->
+      <!-- <GraphStatic /> -->
+      <Graph />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+   
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
 
-  .logo {
-    margin: 0 2rem 0 0;
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  h1 {
+    color: black;
   }
-}
 </style>
