@@ -1,333 +1,988 @@
 {
-    "name": "Instrument", "subs": [
-        {"name": "Famille", "subs": [
-            { "name": "Vent", "subs": [
-                {"name": "Bois", "subs": [
-                    {"name": "Haut Bois"},
-                    {"name": "Clarinette"},
-                    {"name": "Flute à bec"},
-                    {"name": "Flute de Pan"}
-                ]},
-                {"name": "Cuivre", "subs": [
-                    {"name": "Trompette"},
-                    {"name": "Saxophone"},
-                    {"name": "Trombone"}
-    
-                ]},
-                {"name": "Voix", "subs": [
-                    {"name": "Voix"}
-    
-                ]},
-                {"name": "Mécanique", "subs": [
-                    {"name": "Piano"},
-                    {"name": "Orgue"},
-                    {"name": "Accordéon"}
-    
-                ]}
-            ]},
-            {"name": "Corde", "subs": [
-                {"name": "Pincées", "subs": [
-                    {"name": "Violon"},
-                    {"name": "Violoncelle"},
-                    {"name": "Guitare"},
-                    {"name": "Lute"},
-                    {"name": "Sitar"},
-                    {"name": "Banjo"},
-                    {"name": "Mandoline"}
-    
-                ]},
-                {"name": "Frottées", "subs": [
-                    {"name": "Violon"},
-                    {"name": "Violoncelle"},
-                    {"name": "Contrebasse"}
-    
-                ]},
-                {"name": "Frappées", "subs": [
-                    {"name": "Piano"},
-                    {"name": "Clavecin"}
-    
-                ]}
-            ]},
-            {"name": "Percussion", "subs": [
-                {"name": "Membranophone", "subs": [
-                    {"name": "Basse"},
-                    {"name": "Tambour"},
-                    {"name": "Caisse claire"},
-                    {"name": "Grosse caisse"},
-                    {"name": "Tambourin"}
-    
-                ]},
-                {"name": "Idiophone", "subs": [
-                    {"name": "Triangle"},
-                    {"name": "Maracasse"},
-                    {"name": "Gong"},
-                    {"name": "Glokenshpiel"},
-                    {"name": "Bol Tibétain"}
-    
-                ]},
-                {"name": "Cordophone", "subs": [
-                    {"name": "Sanza"}
-    
-                ]},
-                {"name": "Electrophone", "subs": [
-                    {"name": "Synthé"},
-                    {"name": "Batterie électronique"},
-                    {"name": "Guitare électrique"}
-    
-                ]}
-            ]},
-            {"name": "Numérique", "subs": [
-                {"name": "Musique sur ordinateur"}
-            ]}
-        ]},
-        {
-            "name": "Genre Musical",
+    "name": "Instrument",
+    "subs": [
+      {
+        "name": "Famille",
+        "subs": [
+          {
+            "name": "Vent",
             "subs": [
-                {
-                    "name": "Classique",
-                    "subs": [
-                        {"name": "Trompette"},
-                        {"name": "Clarinette"},
-                        {"name": "Haut Bois"},
-                        {"name": "Cornemuse"},
-                        {"name": "Triangle"},
-                        {"name": "Piano"},
-                        {"name": "Violon"},
-                        {"name": "Violoncelle"},
-                        {"name": "Flute à bec"},
-                        {"name": "Harpe"},
-                        {"name": "Lute"},
-                        {"name": "Orgue"},
-                        {"name": "Cor de chasse"},
-                        {"name": "Clavecin"}
-                    ]
-                },
-                {
-                    "name": "Jazz",
-                    "subs": [
-                        {"name": "Saxophone"},
-                        {"name": "Piano"},
-                        {"name": "Basse"},
-                        {"name": "Guitare"},
-                        {"name": "Batterie"},
-                        {"name": "Voix"},
-                        {"name": "Trompette"},
-                        {"name": "Contrebasse"},
-                        {"name": "Clarinette"}
-                    ]
-                },
-                {
-                    "name": "Rock",
-                    "subs": [
-                        {"name": "Guitare"},
-                        {"name": "Basse"},
-                        {"name": "Batterie"},
-                        {"name": "Voix"},
-                        {"name": "Synthé"},
-                        {"name": "Caisse claire"},
-                        {"name": "Grosse caisse"},
-                        {"name": "Guitare électrique"},
-                        {"name": "Basse"},
-                        {"name": "Batterie électronique"}
-                    ]
-                },
-                {
-                    "name": "Pop",
-                    "subs": [
-                        {"name": "Guitare"},
-                        {"name": "Piano"},
-                        {"name": "Voix"},
-                        {"name": "Synthé"},
-                        {"name": "Batterie"},
-                        {"name": "Ukulélé"},
-                        {"name": "Boîte à rythmes"}
-                    ]
-                },
-                {
-                    "name": "Musique électronique",
-                    "subs": [
-                        {"name": "Synthé"},
-                        {"name": "Glokenspiel"},
-                        {"name": "Caisse claire"},
-                        {"name": "Grosse caisse"},
-                        {"name": "Tambourin"},
-                        {"name": "Batterie électronique"},
-                        {"name": "Boîte à rythmes"}
-                    ]
-                },
-                {
-                    "name": "Rap",
-                    "subs": [
-                        {"name": "Voix"},
-                        {"name": "Beatbox"},
-                        {"name": "Boîte à rythmes"}
-                    ]
-                },
-                {
-                    "name": "Reggae",
-                    "subs": [
-                        {"name": "Basse"},
-                        {"name": "Guitare"},
-                        {"name": "Batterie"},
-                        {"name": "Voix"},
-                        {"name": "Maracasse"}
-                    ]
-                },
-                {
-                    "name": "Musique du monde",
-                    "subs": [
-                        {"name": "Sitar"},
-                        {"name": "Pan"},
-                        {"name": "Lyre"},
-                        {"name": "Flute de Pan"},
-                        {"name": "Didgeridoo"},
-                        {"name": "Sanza"},
-                        {"name": "Bouteille"}
-                    ]
-                }
-            ]
-        },
-        {"name": "Origine", "subs": [
-            {"name": "Europe", "subs": [
-                {"name": "Trompette"},
-                {"name": "Clarinette"},
-                {"name": "Hautbois"},
-                {"name": "Cornemuse"},
-                {"name": "Piano"},
-                {"name": "Violon"},
-                {"name": "Violoncelle"},
-                {"name": "Saxophone"},
-                {"name": "Flûte à bec"},
-                {"name": "Lyre"},
-                {"name": "Flûte traversière"},
-                {"name": "Contrebasse"},
-                {"name": "Clavecin"},
-                {"name": "Clairon"},
-                {"name": "Cor de chasse"},
-                {"name": "Trombone"}
-              ]},
-            {"name": "Afrique", "subs": [
-                {"name": "Djembé"},
-                {"name": "TamTam"},
-                {"name": "Sanza"},
-                {"name": "Maracasse"},
-                {"name": "Bongo"}
-            ]}, 
-            {"name": "Asie", "subs": [
-                {"name": "Sitar"},
-                {"name": "Bol Tibétain"},
-                {"name": "Sanza"},
-                {"name": "Flute de Pan"},
-                {"name": "Gong"}
-            ]},
-            {"name": "Amérique", "subs": [
-                {"name": "Trompette"},
-                {"name": "Saxophone"},
-                {"name": "Banjo"},
-                {"name": "Basse"},
-                {"name": "Guitare"},
-                {"name": "Batterie"},
-                {"name": "Maracasse"},
-                {"name": "Marimba"},
-                {"name": "Voix"}
-    
-            ]},
-            {"name": "Océanie", "subs": [
-                {"name": "Tambour d'océan"},
-                {"name": "Didgeridoo"}
-    
-            ]},
-            {"name": "Autre", "subs": [
-                {"name": "Bouteille"}
-            ]}
-        ]},
-        {"name": "Epoque", "subs": [
-            {
-                "name": "Antiquité",
+              {
+                "name": "Bois",
                 "subs": [
-                  {"name": "Lyre"},
-                  {"name": "Pan"},
-                  {"name": "Sitar"},
-                  {"name": "Tambour d'océan"}
-                ]
+                  {
+                    "name": "Haut Bois",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Clarinette",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Flute à bec",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Flute de Pan",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
               },
               {
-                "name": "Moyen-Age",
+                "name": "Cuivre",
                 "subs": [
-                  {"name": "Cornemuse"},
-                  {"name": "Haut Bois"},
-                  {"name": "Lute"},
-                  {"name": "Orgue"},
-                  {"name": "Trompette"}
-                ]
+                  {
+                    "name": "Trompette",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Saxophone",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Trombone",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
               },
               {
-                "name": "Renaissance",
+                "name": "Voix",
                 "subs": [
-                  {"name": "Clavecin"},
-                  {"name": "Cornemuse"},
-                  {"name": "Harpe"},
-                  {"name": "Lute"}
-                ]
+                  {
+                    "name": "Voix",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
               },
               {
-                "name": "Baroque",
+                "name": "Mécanique",
                 "subs": [
-                  {"name": "Clavecin"},
-                  {"name": "Flûte traversière"},
-                  {"name": "Harmonica"},
-                  {"name": "Trompette"}
-                ]
-              },
-              {
-                "name": "Classique",
-                "subs": [
-                  {"name": "Clavecin"},
-                  {"name": "Flûte traversière"},
-                  {"name": "Piano"},
-                  {"name": "Violon"},
-                  {"name": "Violoncelle"},
-                  {"name": "Clarinette"}
-                ]
-              },
-              {
-                "name": "Romantique",
-                "subs": [
-                  {"name": "Contrebasse"},
-                  {"name": "Cor de chasse"},
-                  {"name": "Flûte traversière"},
-                  {"name": "Piano"},
-                  {"name": "Violon"},
-                  {"name": "Violoncelle"},
-                  {"name": "Clarinette"},
-                  {"name": "Trombone"}
-                ]
-              },
-              {
-                "name": "Moderne",
-                "subs": [
-                  {"name": "Accordéon"},
-                  {"name": "Batterie"},
-                  {"name": "Batterie électronique"},
-                  {"name": "Basse"},
-                  {"name": "Guitare"},
-                  {"name": "Guitare électrique"},
-                  {"name": "Synthé"}
-                ]
-              },
-              {
-                "name": "Contemporain",
-                "subs": [
-                  {"name": "Accordéon"},
-                  {"name": "Batterie"},
-                  {"name": "Batterie électronique"},
-                  {"name": "Basse"},
-                  {"name": "Guitare"},
-                  {"name": "Guitare électrique"},
-                  {"name": "Synthé"},
-                  {"name": "Bouteille"}
-                ]
+                  {
+                    "name": "Piano",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Orgue",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Accordéon",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
               }
-        ]}
-    ]
-}
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Corde",
+            "subs": [
+              {
+                "name": "Pincées",
+                "subs": [
+                  {
+                    "name": "Violon",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Violoncelle",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Guitare",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Lute",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Sitar",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Banjo",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Mandoline",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              },
+              {
+                "name": "Frottées",
+                "subs": [
+                  {
+                    "name": "Violon",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Violoncelle",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Contrebasse",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              },
+              {
+                "name": "Frappées",
+                "subs": [
+                  {
+                    "name": "Piano",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Clavecin",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Percussion",
+            "subs": [
+              {
+                "name": "Membranophone",
+                "subs": [
+                  {
+                    "name": "Basse",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Tambour",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Caisse claire",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Grosse caisse",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Tambourin",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              },
+              {
+                "name": "Idiophone",
+                "subs": [
+                  {
+                    "name": "Triangle",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Maracasse",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Gong",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Glokenshpiel",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Bol Tibétain",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              },
+              {
+                "name": "Cordophone",
+                "subs": [
+                  {
+                    "name": "Sanza",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              },
+              {
+                "name": "Electrophone",
+                "subs": [
+                  {
+                    "name": "Synthé",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Batterie électronique",
+                    "level": "5"
+                  },
+                  {
+                    "name": "Guitare électrique",
+                    "level": "5"
+                  }
+                ],
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Numérique",
+            "subs": [
+              {
+                "name": "Musique sur ordinateur",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          }
+        ],
+        "level": "2"
+      },
+      {
+        "name": "Genre Musical",
+        "subs": [
+          {
+            "name": "Classique",
+            "subs": [
+              {
+                "name": "Trompette",
+                "level": "4"
+              },
+              {
+                "name": "Clarinette",
+                "level": "4"
+              },
+              {
+                "name": "Haut Bois",
+                "level": "4"
+              },
+              {
+                "name": "Cornemuse",
+                "level": "4"
+              },
+              {
+                "name": "Triangle",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Violon",
+                "level": "4"
+              },
+              {
+                "name": "Violoncelle",
+                "level": "4"
+              },
+              {
+                "name": "Flute à bec",
+                "level": "4"
+              },
+              {
+                "name": "Harpe",
+                "level": "4"
+              },
+              {
+                "name": "Lute",
+                "level": "4"
+              },
+              {
+                "name": "Orgue",
+                "level": "4"
+              },
+              {
+                "name": "Cor de chasse",
+                "level": "4"
+              },
+              {
+                "name": "Clavecin",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Jazz",
+            "subs": [
+              {
+                "name": "Saxophone",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Voix",
+                "level": "4"
+              },
+              {
+                "name": "Trompette",
+                "level": "4"
+              },
+              {
+                "name": "Contrebasse",
+                "level": "4"
+              },
+              {
+                "name": "Clarinette",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Rock",
+            "subs": [
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Voix",
+                "level": "4"
+              },
+              {
+                "name": "Synthé",
+                "level": "4"
+              },
+              {
+                "name": "Caisse claire",
+                "level": "4"
+              },
+              {
+                "name": "Grosse caisse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare électrique",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Batterie électronique",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Pop",
+            "subs": [
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Voix",
+                "level": "4"
+              },
+              {
+                "name": "Synthé",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Ukulélé",
+                "level": "4"
+              },
+              {
+                "name": "Boîte à rythmes",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Musique électronique",
+            "subs": [
+              {
+                "name": "Synthé",
+                "level": "4"
+              },
+              {
+                "name": "Glokenspiel",
+                "level": "4"
+              },
+              {
+                "name": "Caisse claire",
+                "level": "4"
+              },
+              {
+                "name": "Grosse caisse",
+                "level": "4"
+              },
+              {
+                "name": "Tambourin",
+                "level": "4"
+              },
+              {
+                "name": "Batterie électronique",
+                "level": "4"
+              },
+              {
+                "name": "Boîte à rythmes",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Rap",
+            "subs": [
+              {
+                "name": "Voix",
+                "level": "4"
+              },
+              {
+                "name": "Beatbox",
+                "level": "4"
+              },
+              {
+                "name": "Boîte à rythmes",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Reggae",
+            "subs": [
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Voix",
+                "level": "4"
+              },
+              {
+                "name": "Maracasse",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Musique du monde",
+            "subs": [
+              {
+                "name": "Sitar",
+                "level": "4"
+              },
+              {
+                "name": "Pan",
+                "level": "4"
+              },
+              {
+                "name": "Lyre",
+                "level": "4"
+              },
+              {
+                "name": "Flute de Pan",
+                "level": "4"
+              },
+              {
+                "name": "Didgeridoo",
+                "level": "4"
+              },
+              {
+                "name": "Sanza",
+                "level": "4"
+              },
+              {
+                "name": "Bouteille",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          }
+        ],
+        "level": "2"
+      },
+      {
+        "name": "Origine",
+        "subs": [
+          {
+            "name": "Europe",
+            "subs": [
+              {
+                "name": "Trompette",
+                "level": "4"
+              },
+              {
+                "name": "Clarinette",
+                "level": "4"
+              },
+              {
+                "name": "Hautbois",
+                "level": "4"
+              },
+              {
+                "name": "Cornemuse",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Violon",
+                "level": "4"
+              },
+              {
+                "name": "Violoncelle",
+                "level": "4"
+              },
+              {
+                "name": "Saxophone",
+                "level": "4"
+              },
+              {
+                "name": "Flûte à bec",
+                "level": "4"
+              },
+              {
+                "name": "Lyre",
+                "level": "4"
+              },
+              {
+                "name": "Flûte traversière",
+                "level": "4"
+              },
+              {
+                "name": "Contrebasse",
+                "level": "4"
+              },
+              {
+                "name": "Clavecin",
+                "level": "4"
+              },
+              {
+                "name": "Clairon",
+                "level": "4"
+              },
+              {
+                "name": "Cor de chasse",
+                "level": "4"
+              },
+              {
+                "name": "Trombone",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Afrique",
+            "subs": [
+              {
+                "name": "Djembé",
+                "level": "4"
+              },
+              {
+                "name": "TamTam",
+                "level": "4"
+              },
+              {
+                "name": "Sanza",
+                "level": "4"
+              },
+              {
+                "name": "Maracasse",
+                "level": "4"
+              },
+              {
+                "name": "Bongo",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Asie",
+            "subs": [
+              {
+                "name": "Sitar",
+                "level": "4"
+              },
+              {
+                "name": "Bol Tibétain",
+                "level": "4"
+              },
+              {
+                "name": "Sanza",
+                "level": "4"
+              },
+              {
+                "name": "Flute de Pan",
+                "level": "4"
+              },
+              {
+                "name": "Gong",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Amérique",
+            "subs": [
+              {
+                "name": "Trompette",
+                "level": "4"
+              },
+              {
+                "name": "Saxophone",
+                "level": "4"
+              },
+              {
+                "name": "Banjo",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Maracasse",
+                "level": "4"
+              },
+              {
+                "name": "Marimba",
+                "level": "4"
+              },
+              {
+                "name": "Voix",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Océanie",
+            "subs": [
+              {
+                "name": "Tambour d'océan",
+                "level": "4"
+              },
+              {
+                "name": "Didgeridoo",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Autre",
+            "subs": [
+              {
+                "name": "Bouteille",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          }
+        ],
+        "level": "2"
+      },
+      {
+        "name": "Epoque",
+        "subs": [
+          {
+            "name": "Antiquité",
+            "subs": [
+              {
+                "name": "Lyre",
+                "level": "4"
+              },
+              {
+                "name": "Pan",
+                "level": "4"
+              },
+              {
+                "name": "Sitar",
+                "level": "4"
+              },
+              {
+                "name": "Tambour d'océan",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Moyen-Age",
+            "subs": [
+              {
+                "name": "Cornemuse",
+                "level": "4"
+              },
+              {
+                "name": "Haut Bois",
+                "level": "4"
+              },
+              {
+                "name": "Lute",
+                "level": "4"
+              },
+              {
+                "name": "Orgue",
+                "level": "4"
+              },
+              {
+                "name": "Trompette",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Renaissance",
+            "subs": [
+              {
+                "name": "Clavecin",
+                "level": "4"
+              },
+              {
+                "name": "Cornemuse",
+                "level": "4"
+              },
+              {
+                "name": "Harpe",
+                "level": "4"
+              },
+              {
+                "name": "Lute",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Baroque",
+            "subs": [
+              {
+                "name": "Clavecin",
+                "level": "4"
+              },
+              {
+                "name": "Flûte traversière",
+                "level": "4"
+              },
+              {
+                "name": "Harmonica",
+                "level": "4"
+              },
+              {
+                "name": "Trompette",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Classique",
+            "subs": [
+              {
+                "name": "Clavecin",
+                "level": "4"
+              },
+              {
+                "name": "Flûte traversière",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Violon",
+                "level": "4"
+              },
+              {
+                "name": "Violoncelle",
+                "level": "4"
+              },
+              {
+                "name": "Clarinette",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Romantique",
+            "subs": [
+              {
+                "name": "Contrebasse",
+                "level": "4"
+              },
+              {
+                "name": "Cor de chasse",
+                "level": "4"
+              },
+              {
+                "name": "Flûte traversière",
+                "level": "4"
+              },
+              {
+                "name": "Piano",
+                "level": "4"
+              },
+              {
+                "name": "Violon",
+                "level": "4"
+              },
+              {
+                "name": "Violoncelle",
+                "level": "4"
+              },
+              {
+                "name": "Clarinette",
+                "level": "4"
+              },
+              {
+                "name": "Trombone",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Moderne",
+            "subs": [
+              {
+                "name": "Accordéon",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Batterie électronique",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Guitare électrique",
+                "level": "4"
+              },
+              {
+                "name": "Synthé",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          },
+          {
+            "name": "Contemporain",
+            "subs": [
+              {
+                "name": "Accordéon",
+                "level": "4"
+              },
+              {
+                "name": "Batterie",
+                "level": "4"
+              },
+              {
+                "name": "Batterie électronique",
+                "level": "4"
+              },
+              {
+                "name": "Basse",
+                "level": "4"
+              },
+              {
+                "name": "Guitare",
+                "level": "4"
+              },
+              {
+                "name": "Guitare électrique",
+                "level": "4"
+              },
+              {
+                "name": "Synthé",
+                "level": "4"
+              },
+              {
+                "name": "Bouteille",
+                "level": "4"
+              }
+            ],
+            "level": "3"
+          }
+        ],
+        "level": "2"
+      }
+    ],
+    "level": "1"
+  }
