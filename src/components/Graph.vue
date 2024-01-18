@@ -8,7 +8,8 @@ import {
   ForceEdgeDatum,
 } from "v-network-graph/lib/force-layout"
 
-const NODE_COUNT = 20
+
+const textRecherche = ref('')
 
 const nodes = ref({});
 const edges = ref({});
@@ -164,15 +165,29 @@ function AfficheNiv(level){
   console.log(nodesAndRelations[0]);
 }
 
+function rechercheInstrument(){
+  //Affiche seulement le path directement relié à l'instrument
+  console.log(textRecherche.value);
+  
+}
+
 </script>
 
 <template>
   <div class="container">
-    <div class="buttons">
-      <button @click="AfficheNiv(1)">Affiche Niveau 1</button>
-      <button @click="AfficheNiv(2)">Affiche Niveau 2</button>
-      <button @click="AfficheNiv(3)">Affiche Niveau 3</button>
-      <button @click="AfficheNiv(4)">Affiche tous le Graph</button>
+    <div class="nav">
+      <div class="buttons">
+        <button @click="AfficheNiv(1)">Affiche Niveau 1</button>
+        <button @click="AfficheNiv(2)">Affiche Niveau 2</button>
+        <button @click="AfficheNiv(3)">Affiche Niveau 3</button>
+        <button @click="AfficheNiv(4)">Affiche tous le Graph</button>
+      </div>
+      
+      <div class="recherche">
+        <h2>Rechercher un instrument</h2>
+        <input type="text" id="search" name="search" placeholder="Recherche" v-model="textRecherche">
+        <button @click="rechercheInstrument">Recherche Instrument</button>
+      </div>
     </div>
 
     <v-network-graph
@@ -205,5 +220,9 @@ function AfficheNiv(level){
 
 .buttons button {
   margin-bottom: 0.5rem; /* Ajustez la marge en fonction de vos besoins */
+}
+h2{
+  color: black;
+  margin: 1rem;
 }
 </style>
