@@ -13,6 +13,8 @@ const textRecherche = ref('')
 
 const nodes = ref({});
 const edges = ref({});
+const nbNodes = ref(0);
+const nbEdges = ref(0);
 const layouts = ref({
   nodes: {
     node0: {
@@ -130,6 +132,8 @@ console.log(nodesAndRelations[1]);
 // Initialiser les propriétés de données
 nodes.value = nodesAndRelations[0];
 edges.value = nodesAndRelations[1];
+nbNodes.value = Object.keys(nodes.value).length;
+nbEdges.value = Object.keys(edges.value).length;
 
 let nodeTest = {
     "name": "test",
@@ -162,6 +166,8 @@ function AfficheNiv(level){
   nodesAndRelations[0] = changeLevelToColor(nodesAndRelations[0]);
   nodes.value = nodesAndRelations[0];
   edges.value = nodesAndRelations[1];
+  nbNodes.value = Object.keys(nodes.value).length;
+  nbEdges.value = Object.keys(edges.value).length;
   console.log(nodesAndRelations[0]);
 }
 
@@ -198,6 +204,11 @@ function rechercheInstrument(){
       :layouts="layouts"
       :configs="configs"
     />
+    <div class="data">
+      <h2>Données</h2>
+      <p>Nombre de Noeuds : {{ nbNodes }}</p>
+      <p>Nombre d'Edges : {{ nbEdges }}</p>
+    </div>
   </div>
 </template>
 
@@ -210,6 +221,9 @@ function rechercheInstrument(){
 
 .container {
   display: flex;
+  flex-direction: row;
+  justify-items: center;
+
 }
 
 .buttons {
@@ -221,7 +235,21 @@ function rechercheInstrument(){
 .buttons button {
   margin-bottom: 0.5rem; /* Ajustez la marge en fonction de vos besoins */
 }
+
+.recherche {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-bottom: 0.5rem; /* Ajustez la marge en fonction de vos besoins */
+  }
+}
+
 h2{
+  color: black;
+  margin: 1rem;
+}
+p {
   color: black;
   margin: 1rem;
 }

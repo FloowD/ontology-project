@@ -9,14 +9,13 @@ import {ref} from 'vue'
 
 <template>
   <header>
-    <h1>Ontologie sur les instruments de musiques</h1>
     <div>
       <!-- {{ instrumentOntology }} -->
       <!-- <GraphStatic /> -->
       <Graph />
     </div>
   </header>
-
+  
   <main>
    
   </main>
@@ -26,8 +25,6 @@ import {ref} from 'vue'
   header {
     color: #fff;
     padding: 1rem;
-    text-align: center;
-
   }
   h1 {
     color: black;
