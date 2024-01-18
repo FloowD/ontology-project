@@ -155,9 +155,9 @@ let nodeTest = {
     ]
   }
 
-function AfficheNiv1(){
+function AfficheNiv(level){
   //Affiche seulement le level 1 du graph
-  let nodesAndRelations = extractNodesAndEdgesToLevel(ontologyJson, 3);
+  let nodesAndRelations = extractNodesAndEdgesToLevel(ontologyJson, level+1);
   nodesAndRelations[0] = changeLevelToColor(nodesAndRelations[0]);
   nodes.value = nodesAndRelations[0];
   edges.value = nodesAndRelations[1];
@@ -169,7 +169,10 @@ function AfficheNiv1(){
 <template>
   <div class="container">
     <div class="buttons">
-      <button @click="AfficheNiv1">Affiche Niveau 1</button>
+      <button @click="AfficheNiv(1)">Affiche Niveau 1</button>
+      <button @click="AfficheNiv(2)">Affiche Niveau 2</button>
+      <button @click="AfficheNiv(3)">Affiche Niveau 3</button>
+      <button @click="AfficheNiv(4)">Affiche tous le Graph</button>
     </div>
 
     <v-network-graph
@@ -196,5 +199,11 @@ function AfficheNiv1(){
 
 .buttons {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons button {
+  margin-bottom: 0.5rem; /* Ajustez la marge en fonction de vos besoins */
 }
 </style>
