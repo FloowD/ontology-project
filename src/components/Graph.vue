@@ -24,6 +24,7 @@ const layouts = ref({
     },
   },
 });
+const depth = ref(2);
 
 const configs = ref(
   vNG.defineConfigs({
@@ -36,9 +37,9 @@ const configs = ref(
           const forceLink = d3.forceLink<ForceNodeDatum, ForceEdgeDatum>(edges).id(d => d.id)
           return d3
             .forceSimulation(nodes)
-            .force("edge", forceLink.distance(60).strength(0.04))
-            .force("charge", d3.forceManyBody().strength(-250))
-            .alphaMin(0.001)
+            .force("edge", forceLink.distance(30).strength(1))
+            .force("charge", d3.forceManyBody().strength(-5000))
+            .alphaMin(0.000000001)
         }
       }),
     },
@@ -57,6 +58,7 @@ const configs = ref(
     },
   })
 );
+
 
 function extractNodesAndEdges(dict) {
   let nodes = {};
@@ -163,18 +165,62 @@ let nodeTest = {
 function AfficheNiv(level){
   //Affiche seulement le level 1 du graph
   let nodesAndRelations = extractNodesAndEdgesToLevel(ontologyJson, level+1);
-  nodesAndRelations[0] = changeLevelToColor(nodesAndRelations[0]);
-  nodes.value = nodesAndRelations[0];
-  edges.value = nodesAndRelations[1];
-  nbNodes.value = Object.keys(nodes.value).length;
-  nbEdges.value = Object.keys(edges.value).length;
-  console.log(nodesAndRelations[0]);
+  updateGraph(nodesAndRelations[0], nodesAndRelations[1]);
 }
 
-function rechercheInstrument(){
-  //Affiche seulement le path directement relié à l'instrument
-  console.log(textRecherche.value);
-  
+function updateGraph(newNodes, newEdges) {
+  nodes.value = changeLevelToColor(newNodes);
+  edges.value = newEdges;
+  nbNodes.value = Object.keys(nodes.value).length;
+  nbEdges.value = Object.keys(edges.value).length;
+}
+
+function onInput(){
+    const newNodesAndRelations = extractNodesAndEdgesByName(ontologyJson, textRecherche.value.toLowerCase(), depth.value)
+    console.log(newNodesAndRelations[0]);
+    console.log(newNodesAndRelations[1]);
+    updateGraph(newNodesAndRelations[0], newNodesAndRelations[1]);
+}
+
+function extractNodesAndEdgesByName(dict, name, depth) {
+  let nodes = {};
+  let relations = {};
+
+  if (dict.name.toLowerCase().includes(name)) {
+    nodes[dict.name] = { name: dict.name, level: dict.level };
+  }
+
+  if (dict.subs) {
+    dict.subs.forEach(sub => {
+      const subNodesAndEdges = extractNodesAndEdgesByName(sub, name, depth);
+      nodes = { ...nodes, ...subNodesAndEdges[0] };
+      relations = { ...relations, ...subNodesAndEdges[1] };
+      if (dict.name.toLowerCase().includes(name)) {
+        const subNodesAndEdges = extractNodesAndEdgesToDepth(dict, depth);
+        nodes = { ...nodes, ...subNodesAndEdges[0] };
+        relations = { ...relations, ...subNodesAndEdges[1] };
+      }
+    });
+  }
+
+  return [nodes, relations];
+}
+
+function extractNodesAndEdgesToDepth(dict, depth) {
+  let nodes = {};
+  let relations = {};
+  nodes[dict.name] = { name: dict.name, level: dict.level };
+
+  if (dict.subs && depth > 0) {
+    dict.subs.forEach(sub => {
+      const subNodesAndEdges = extractNodesAndEdgesToDepth(sub, depth - 1);
+      nodes = { ...nodes, ...subNodesAndEdges[0] };
+      relations = { ...relations, ...subNodesAndEdges[1] };
+      relations[dict.name + sub.name] = { source: dict.name, target: sub.name };
+    });
+  }
+
+  return [nodes, relations];
 }
 
 </script>
@@ -191,8 +237,11 @@ function rechercheInstrument(){
       
       <div class="recherche">
         <h2>Rechercher un instrument</h2>
-        <input type="text" id="search" name="search" placeholder="Recherche" v-model="textRecherche">
-        <button @click="rechercheInstrument">Recherche Instrument</button>
+        <input type="text" id="search" name="search" placeholder="Recherche" @input="onInput" v-model="textRecherche">
+      </div>
+      <div class="sub-depth">
+        <h2>Profondeur de recherche : {{ depth }}</h2>
+        <input type="range" id="depth" name="depth" min="1" max="4" value="2" @input="onInput" v-model="depth">
       </div>
     </div>
 
