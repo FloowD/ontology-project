@@ -13,9 +13,7 @@ main {
   margin-bottom: 2rem;
 }
 
-main > * {
-  flex: 1;
-}
+
 
 a,
 .green {
