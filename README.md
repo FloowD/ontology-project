@@ -1,4 +1,6 @@
-# ontology-project-vue
+# Ontologie sur les Instruments de musique
+
+*Florian Dufaure - Romain Pajean*
 
 This template should help get you started developing with Vue 3 in Vite.
 

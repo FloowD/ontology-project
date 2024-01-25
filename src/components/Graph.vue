@@ -24,7 +24,8 @@ const layouts = ref({
     },
   },
 });
-const depth = ref(2);
+const depth = ref(1);
+const father = ref(false);
 
 const configs = ref(
   vNG.defineConfigs({
@@ -63,6 +64,7 @@ const configs = ref(
 function extractNodesAndEdges(dict) {
   let nodes = {};
   let relations = {};
+  console.log("dict: " + dict.name)
   nodes[dict.name] = {name: dict.name, level: dict.level};
   if(dict.subs){
     dict.subs.forEach(sub => {
@@ -126,17 +128,6 @@ function levelToColor(node){
     }
 }
 
-let nodesAndRelations = extractNodesAndEdges(ontologyJson);
-nodesAndRelations[0] = changeLevelToColor(nodesAndRelations[0]);
-console.log(nodesAndRelations[0]);
-console.log(nodesAndRelations[1]);
-
-// Initialiser les propriétés de données
-nodes.value = nodesAndRelations[0];
-edges.value = nodesAndRelations[1];
-nbNodes.value = Object.keys(nodes.value).length;
-nbEdges.value = Object.keys(edges.value).length;
-
 let nodeTest = {
     "name": "test",
     "level": "0",
@@ -162,6 +153,21 @@ let nodeTest = {
     ]
   }
 
+let nodesAndRelations = extractNodesAndEdges(ontologyJson);
+// console.log("NodeTest : ", nodeTest);
+// console.log("TypeNodeTest ", typeof nodeTest);
+// let nodesAndRelations = extractNodesAndEdges(nodeTest);
+nodesAndRelations[0] = changeLevelToColor(nodesAndRelations[0]);
+console.log(nodesAndRelations[0]);
+console.log(nodesAndRelations[1]);
+
+// Initialiser les propriétés de données
+nodes.value = nodesAndRelations[0];
+edges.value = nodesAndRelations[1];
+nbNodes.value = Object.keys(nodes.value).length;
+nbEdges.value = Object.keys(edges.value).length;
+
+
 function AfficheNiv(level){
   //Affiche seulement le level 1 du graph
   let nodesAndRelations = extractNodesAndEdgesToLevel(ontologyJson, level+1);
@@ -179,7 +185,14 @@ function onInput(){
     const newNodesAndRelations = extractNodesAndEdgesByName(ontologyJson, textRecherche.value.toLowerCase(), depth.value)
     console.log(newNodesAndRelations[0]);
     console.log(newNodesAndRelations[1]);
+    
+    //If father, add the super concepts of textRecherche
+    console.log("Father : ", father.value)
+    
+    
     updateGraph(newNodesAndRelations[0], newNodesAndRelations[1]);
+
+
 }
 
 function extractNodesAndEdgesByName(dict, name, depth) {
@@ -188,6 +201,12 @@ function extractNodesAndEdgesByName(dict, name, depth) {
 
   if (dict.name.toLowerCase().includes(name)) {
     nodes[dict.name] = { name: dict.name, level: dict.level };
+    if(!father.value){
+      const superConcepts = findSuperConcepts(ontologyJson, { name: dict.name, level: dict.level });
+      const superConceptsNodesAndEdges = extractNodesAndEdgesToDepth(superConcepts, depth);
+      nodes = { ...nodes, ...superConceptsNodesAndEdges[0] };
+      relations = { ...relations, ...superConceptsNodesAndEdges[1] };
+    }
   }
 
   if (dict.subs) {
@@ -219,9 +238,78 @@ function extractNodesAndEdgesToDepth(dict, depth) {
       relations[dict.name + sub.name] = { source: dict.name, target: sub.name };
     });
   }
-
   return [nodes, relations];
 }
+
+function findSuperConcepts(graph, node) {
+  let superConcepts = {};
+
+  function findSuperConceptsRec(currentNode, path = []) {
+    if (!currentNode) {
+      return;
+    }
+
+    if (currentNode.name === node.name && currentNode.level === node.level) {
+      //Get the info of the current node from the graph
+
+      // Found the target node, add its super concepts to the result
+      superConcepts[currentNode.name] = { name: currentNode.name, level: currentNode.level, subs: path };
+    } else if (currentNode.subs && currentNode.subs.length > 0 ) {
+      // Continue searching in the sub-nodes
+      for (const subNode of currentNode.subs) {
+        findSuperConceptsRec(subNode, [{ name: currentNode.name, level: currentNode.level, subs: path }]);
+      }
+    }
+  }
+
+  // Start the recursive search from the root of the graph
+  findSuperConceptsRec(graph);
+  //return the first element of the object
+  return superConcepts[Object.keys(superConcepts)[0]];
+}
+
+function getLevelFromNameInGraph(graph, nodeName){
+  //Get the level of a nodeName in the graph
+  let level = 0;
+  let found = false;
+
+  function getLevelFromNameInGraphRec(currentNode, path = []) {
+    if (!currentNode) {
+      return;
+    }
+
+    if (currentNode.name === nodeName.name) {
+      //Get the info of the current node from the graph
+      level = currentNode.level;
+      found = true;
+    } else if (currentNode.subs && currentNode.subs.length > 0) {
+      // Continue searching in the sub-nodes
+      for (const subNode of currentNode.subs) {
+        getLevelFromNameInGraphRec(subNode, [{ name: currentNode.name, level: currentNode.level, subs: path }]);
+      }
+    }
+  }
+
+  // Start the recursive search from the root of the graph
+  getLevelFromNameInGraphRec(graph);
+  return level;
+}
+
+function test(){
+  let testLevel = getLevelFromNameInGraph(nodeTest, { name: "subsub2"});
+  console.log("testLevel: " + testLevel);
+  let testNodes = findSuperConcepts(nodeTest, {name: "subsub1", level: getLevelFromNameInGraph(nodeTest, { name: "subsub1"})}, 1);
+  console.log(testNodes)
+  console.log("SuperConcept : ",findSuperConcepts(nodeTest, {name: "subsub2", level: "2"}));
+  let test = extractNodesAndEdges(testNodes);
+  test[0] = changeLevelToColor(test[0]);
+  nodes.value = test[0];
+  edges.value = test[1];
+  nbNodes.value = Object.keys(nodes.value).length;
+  nbEdges.value = Object.keys(edges.value).length;
+  console.log("Test : ",test);
+}
+
 
 </script>
 
@@ -233,6 +321,7 @@ function extractNodesAndEdgesToDepth(dict, depth) {
         <button @click="AfficheNiv(2)">Affiche Niveau 2</button>
         <button @click="AfficheNiv(3)">Affiche Niveau 3</button>
         <button @click="AfficheNiv(4)">Affiche tous le Graph</button>
+        // <button @click="test">Test</button>
       </div>
       
       <div class="recherche">
@@ -241,7 +330,11 @@ function extractNodesAndEdgesToDepth(dict, depth) {
       </div>
       <div class="sub-depth">
         <h2>Profondeur de recherche : {{ depth }}</h2>
-        <input type="range" id="depth" name="depth" min="1" max="4" value="2" @input="onInput" v-model="depth">
+        <input type="range" id="depth" name="depth" min="0" max="3" value="1" @input="onInput" v-model="depth">
+      </div>
+      <div class="see-father">
+        <h2>Voir les super concepts ?</h2>
+        <input type="checkbox" id="father" name="father" value="father" @input="onInput" v-model="father">
       </div>
     </div>
 
