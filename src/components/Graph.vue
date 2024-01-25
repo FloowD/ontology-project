@@ -181,6 +181,11 @@ function updateGraph(newNodes, newEdges) {
   nbEdges.value = Object.keys(edges.value).length;
 }
 
+function changeFather(){
+  father.value = !father.value;
+  onInput();
+}
+
 function onInput(){
     const newNodesAndRelations = extractNodesAndEdgesByName(ontologyJson, textRecherche.value.toLowerCase(), depth.value)
     console.log(newNodesAndRelations[0]);
@@ -201,7 +206,7 @@ function extractNodesAndEdgesByName(dict, name, depth) {
 
   if (dict.name.toLowerCase().includes(name)) {
     nodes[dict.name] = { name: dict.name, level: dict.level };
-    if(!father.value){
+    if(father.value){
       const superConcepts = findSuperConcepts(ontologyJson, { name: dict.name, level: dict.level });
       const superConceptsNodesAndEdges = extractNodesAndEdgesToDepth(superConcepts, depth);
       nodes = { ...nodes, ...superConceptsNodesAndEdges[0] };
@@ -321,7 +326,7 @@ function test(){
         <button @click="AfficheNiv(2)">Affiche Niveau 2</button>
         <button @click="AfficheNiv(3)">Affiche Niveau 3</button>
         <button @click="AfficheNiv(4)">Affiche tous le Graph</button>
-        // <button @click="test">Test</button>
+        <!-- <button @click="test">Test</button> -->
       </div>
       
       <div class="recherche">
@@ -334,7 +339,8 @@ function test(){
       </div>
       <div class="see-father">
         <h2>Voir les super concepts ?</h2>
-        <input type="checkbox" id="father" name="father" value="father" @input="onInput" v-model="father">
+        <input type="checkbox" id="father" name="father" value="father" @input="changeFather">
+        <label id="oui" for="father">{{ father }}</label>
       </div>
     </div>
 
@@ -376,6 +382,11 @@ function test(){
 
 .buttons button {
   margin-bottom: 0.5rem; /* Ajustez la marge en fonction de vos besoins */
+}
+
+#oui {
+  margin-left: 0.5rem;
+  color: #000;
 }
 
 .recherche {

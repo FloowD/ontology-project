@@ -1,16 +1,15 @@
-# Ontologie sur les Instruments de musique
+# INFO907 - Ontologie sur les Instruments de musique
 
 *Florian Dufaure - Romain Pajean*
 
-This template should help get you started developing with Vue 3 in Vite.
+- Vous pouvez afficher différents niveaux dans le graphe avec les boutons.
 
-## Recommended IDE Setup
+- Vous pouvez recherche un/des noeuds précis avec la champs de recherche.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- On peut indiquer le niveau de pronfondeur de la recherche
 
-## Customize configuration
+- Il y a un bouton pour la recherche des super concepts
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -24,8 +23,3 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
